@@ -1,0 +1,103 @@
+@4k:     ~"only screen and (min-width: 2560px)";
+@laptop: ~"only screen and (min-width: 1024px) and (max-width: 2559px)";
+@tablet: ~"only screen and (max-width: 1023px)";
+
+
+.home {
+	display: flex;
+	flex-flow: column;
+	height: 90%;
+	max-width: 800px;
+	border: 1px solid black;
+	border-radius: 20px;
+
+	@media @4k {
+		width: 30%;
+	}
+
+	@media @laptop {
+		width: 60%;
+	}
+
+	@media @tablet {
+		width: 90%;
+	}
+
+
+	.head {
+		height: 10%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.body {
+		height: 80%;
+
+		.story {
+			border-top: 1px solid black;
+			height: 10%;
+			padding: 10px;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+
+			.row1 {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				div {
+					cursor: pointer;
+				}
+
+				span {
+					max-width: 95%;
+				}
+			}
+
+			.row2 {
+				display: flex;
+				justify-content: space-between;
+			}
+
+		}
+
+		.loading {
+			border-top: 1px solid black;
+			height: 10%;
+			padding: 10px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.footer {
+		height: 10%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid black;
+
+
+		.active {
+			color: #0074cc;
+			cursor: pointer;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.disabled {
+			color: grey;
+			cursor: not-allowed;
+			pointer-events: none;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+	}
+}
