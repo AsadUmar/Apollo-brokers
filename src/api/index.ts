@@ -31,15 +31,15 @@ export type Dict<T> = { [key: string]: T };
 
 const StoryBank: Dict<Story> = {}
 
-async function memoizeAsync <T>(key: string, bank: Dict<T>, fn: (key: string) => Promise<T>) {
+async function memoizeAsync <T>(key: string, bank: Dict<T>, fn: (key: string) => Promise<T>): Promise<T> {
     if (bank[key]) {
         return new Promise<T>((res) => res(bank[key]))
-    } else {
+    } 
         return fn(key).then(e => {
             bank[key] = e
             return e as T
         })
-    }
+    
 }
 
 async function getHeadlines(): Promise<number[]> {
@@ -110,7 +110,7 @@ export function useGetStory(id: string): ApiRequest<Story> {
                     })
                 })
         }
-    }, [])
+    }, [id])
 
     return req
 }
